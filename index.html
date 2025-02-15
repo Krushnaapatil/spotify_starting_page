@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <!-- CSS Styles (Add inside <style> in <head>) -->
+<style>
+    /* Sidebar - Fixed to Left */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: black;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Adjust Main Content to Avoid Overlap */
+.main-content {
+    margin-left: 260px; /* Adjust based on sidebar width */
+    padding: 20px;
+    flex: 1;
+}
+
+/* Navbar - Sticky at the Top */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #181818;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+    /* Music Player */
+    .music-player {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #181818;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-top: 2px solid #282828;
+    }
+
+    .track-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .track-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+    }
+
+    .track-info h5 {
+        font-size: 14px;
+        margin: 0;
+        color: white;
+    }
+
+    .track-info p {
+        font-size: 12px;
+        color: #b3b3b3;
+        margin: 0;
+    }
+
+    /* Controls */
+    .controls i {
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: 0.3s;
+    }
+
+    .controls i:hover {
+        color: #1DB954;
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Spotify</h2>
+            <div class="nav">
+                <button class="btn"><i class="fa-solid fa-house"></i> Home</button>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                <button class="btn"><img src="./library_icon.png" width="15px"> Your Library</button>
+            </div>
+
+            <!-- Create Playlist Card -->
+            <div class="card-custom">
+                <h4>Create your own playlist</h4>
+                <p style="color:#b3b3b3; font-size:13px;">It's easy, we will help you.</p>
+                <button class="btn btn-custom">Create Playlist</button>
+            </div>
+            <!-- Let's find some podcast to follow Card -->
+            <div class="card-custom">
+                <h4>Let's find some podcast to follow</h4>
+                <p style="color:#b3b3b3; font-size:13px;">It's easy, we will help you.</p>
+                <button class="btn btn-custom">Browse podcast</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="sticky-nav">
+                <div>
+                    <img src="./backward_icon.png">
+                    <img src="./forward_icon.png">
+                </div>
+                <div>
+                    <button class="btn btn-custom">Upgrade</button>
+                    <button class="btn btn-light"><i class="fa-solid fa-arrow-down"></i> Install</button>
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+
+            <!-- Recently Played -->
+            <h3 class="mt-4">Recently Played</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <img src="./card1img.jpeg" class="img-fluid rounded">
+                        <p>Top 50 - Global</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Now -->
+            <h3 class="mt-4">Trending Now Near You</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <img src="./card1img.jpeg" class="img-fluid rounded">
+                        <p>Top 50 - Global</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <a href="https://open.spotify.com/artist/2GoeZ0qOTt6kjsWW4eA6LS?si=dab1237acd924e74">
+                        <img src="./card2img.jpeg" class="img-fluid rounded">
+                        <p>Mahiye Jinna Sona</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <img src="./card3img.jpeg" class="img-fluid rounded">
+                        <p>Glory - Yo Yo Honey Singh</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <img src="./card6img.jpeg" class="img-fluid rounded">
+                        <p>Top Songs India</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Chart -->
+            <h3 class="mt-4">Top Chart</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <img src="./card6img.jpeg" class="img-fluid rounded">
+                        <p>Top Songs India</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="playlist-card">
+                        <img src="./card1img.jpeg" class="img-fluid rounded">
+                        <p>Top 50 - Global</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+<div class="music-player">
+    <div class="track-info">
+        <img src="./card1img.jpeg" class="track-img">
+        <div>
+            <h5>Top 50 - Global</h5>
+            <p>Spotify</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <i class="fa-solid fa-backward-step"></i>
+        <i class="fa-solid fa-play play-btn"></i>
+        <i class="fa-solid fa-forward-step"></i>
+    </div>
+</div>
+
+</body>
+
+</html>
